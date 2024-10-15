@@ -1,5 +1,7 @@
 package org.chess;
 
+import org.chess.chess_pieces.ChessPiece;
+
 public class ChessBoard {
     public ChessPiece[][] board = new ChessPiece[8][8]; // creating a field for game
     String nowPlayer;
