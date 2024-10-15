@@ -2,6 +2,7 @@ package org.chess;
 
 import org.chess.chess_pieces.Horse;
 import org.chess.chess_pieces.Pawn;
+import org.chess.chess_pieces.Bishop;
 
 import java.util.Scanner;
 
