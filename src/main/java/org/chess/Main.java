@@ -4,6 +4,8 @@ import org.chess.chess_pieces.Horse;
 import org.chess.chess_pieces.Pawn;
 import org.chess.chess_pieces.Bishop;
 import org.chess.chess_pieces.Rook;
+import org.chess.chess_pieces.Queen;
+import org.chess.chess_pieces.King;
 
 import java.util.Scanner;
 
