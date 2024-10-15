@@ -1,6 +1,7 @@
 package org.chess;
 
 import org.chess.chess_pieces.Horse;
+import org.chess.chess_pieces.Pawn;
 
 import java.util.Scanner;
 
