@@ -9,7 +9,13 @@ public class Queen extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        return false;
+        // Королева не может выйти за пределы доски
+        if (toLine > 7 || toLine < 0 || toColumn < 0 || toColumn > 7) return false;
+
+        // Королева не может переместиться в ту же клетку
+        if ((line == toLine) && (column == toColumn)) return false;
+
+        return true;
     }
 
     @Override
