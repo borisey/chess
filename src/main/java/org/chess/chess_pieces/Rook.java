@@ -3,8 +3,6 @@ package org.chess.chess_pieces;
 import org.chess.ChessBoard;
 
 public class Rook extends ChessPiece {
-    String color;
-
     public Rook(String color) {
         super(color);
     }

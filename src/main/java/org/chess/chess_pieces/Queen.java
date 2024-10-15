@@ -2,8 +2,8 @@ package org.chess.chess_pieces;
 
 import org.chess.ChessBoard;
 
-public class Bishop extends ChessPiece {
-    public Bishop(String color) {
+public class Queen extends ChessPiece {
+    public Queen(String color) {
         super(color);
     }
 
@@ -14,6 +14,6 @@ public class Bishop extends ChessPiece {
 
     @Override
     public String getSymbol() {
-        return "B";
+        return "Q";
     }
 }

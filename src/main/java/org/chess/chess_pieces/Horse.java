@@ -3,8 +3,6 @@ package org.chess.chess_pieces;
 import org.chess.ChessBoard;
 
 public class Horse extends ChessPiece {
-    String color;
-
     public Horse(String color) {
         super(color);
     }
