@@ -10,7 +10,7 @@ public abstract class ChessPiece {
         this.color = color;
     }
 
-    public String getColor(String color) {
+    public String getColor() {
         return this.color;
     }
 
