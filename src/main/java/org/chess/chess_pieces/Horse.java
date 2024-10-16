@@ -27,6 +27,9 @@ public class Horse extends ChessPiece {
         // Конь не может двигаться по диагонали
         if (Math.abs(line - toLine) == Math.abs(toColumn - column)) return false;
 
+        // Конь не может проходить через другие фигуры
+        if (isObstacleExist(chessBoard, line, column, toLine, toColumn)) return false;
+
         return true;
     }
 
