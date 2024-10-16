@@ -20,6 +20,13 @@ public abstract class ChessPiece {
     public abstract String getSymbol();
 
     /**
+     * Метод проводит базовую проверку корректности хода
+     */
+    public boolean isBaseMoveCorrect(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
+        return (!isObstacleExist(chessBoard, line, column, toLine, toColumn) && !isPieceMoveOutBoard(toLine, toColumn) && !isPieceMoveToSamePath(line, column, toLine, toColumn));
+    }
+
+    /**
      * Метод проверяет, существует ли припятствие
      */
     public boolean isObstacleExist(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
@@ -48,13 +55,6 @@ public abstract class ChessPiece {
         }
 
         return false;
-    }
-
-    /**
-     * Метод проводит базовую проверку корректности хода
-     */
-    public boolean isBaseMoveIncorrect(int line, int column, int toLine, int toColumn) {
-        return (isPieceMoveOutBoard(toLine, toColumn) || isPieceMoveToSamePath(line, column, toLine, toColumn));
     }
 
     /**

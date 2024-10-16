@@ -14,14 +14,11 @@ public class Rook extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Базовая проверка корректности хода (выход за пределы, переход в ту же клетку)
-        if (isBaseMoveIncorrect(line, column, toLine, toColumn)) return false;
+        // Базовая проверка корректности хода (запрет проходить через другие фигуры, запрет выхода за пределы, запрет перехода в ту же клетку)
+        if (!isBaseMoveCorrect(chessBoard, line, column, toLine, toColumn)) return false;
 
         // Ладья перемещаться только по прямой
         if (Math.abs(toColumn-column) > 0 && Math.abs(toLine-line) > 0) return false;
-
-        // Ладья не может проходить через другие фигуры
-        if (isObstacleExist(chessBoard, line, column, toLine, toColumn)) return false;
 
         return true;
     }

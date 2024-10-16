@@ -14,20 +14,13 @@ public class Queen extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Базовая проверка корректности хода (выход за пределы, переход в ту же клетку)
-        if (isBaseMoveIncorrect(line, column, toLine, toColumn)) return false;
+        // Базовая проверка корректности хода (запрет проходить через другие фигуры, запрет выхода за пределы, запрет перехода в ту же клетку)
+        if (!isBaseMoveCorrect(chessBoard, line, column, toLine, toColumn)) return false;
 
         // Королева не может двигаться буквой Г
         if (Math.abs(toLine - line) != (Math.abs(toColumn - column))) {
-            if (Math.abs(toLine - line) == 0 || Math.abs(toColumn - column) == 0) {
-                return true;
-            } else {
-                return false;
-            }
+            return Math.abs(toLine - line) == 0 || Math.abs(toColumn - column) == 0;
         }
-
-        // Королева не может проходить через другие
-        if (isObstacleExist(chessBoard, line, column, toLine, toColumn)) return false;
 
         return true;
     }
