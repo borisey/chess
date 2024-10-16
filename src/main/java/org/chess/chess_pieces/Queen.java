@@ -24,6 +24,9 @@ public class Queen extends ChessPiece {
         // Королева не может переместиться в ту же клетку
         if ((line == toLine) && (column == toColumn)) return false;
 
+        // Королева не может проходить через другие
+        if (isObstacleExist(chessBoard, line, column, toLine, toColumn)) return false;
+
         return true;
     }
 
