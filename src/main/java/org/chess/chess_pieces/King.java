@@ -17,7 +17,7 @@ public class King extends ChessPiece {
         // Базовая проверка корректности хода (запрет проходить через другие фигуры, запрет выхода за пределы, запрет перехода в ту же клетку)
         if (!isBaseMoveCorrect(chessBoard, line, column, toLine, toColumn)) return false;
 
-        if (isUnderAttack(chessBoard, line, column)) return false;
+        if (isUnderAttack(chessBoard, toLine, toColumn)) return false;
 
         // Король может переместиться в любое поле вокруг себя
         return (Math.abs(toLine - line) <= 1) && (Math.abs(toColumn - column) <= 1);
