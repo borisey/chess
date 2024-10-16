@@ -8,6 +8,11 @@ public class Queen extends ChessPiece {
     }
 
     @Override
+    public String getSymbol() {
+        return "Q";
+    }
+
+    @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         // Королева не может выйти за пределы доски
         if (toLine > 7 || toLine < 0 || toColumn < 0 || toColumn > 7) return false;
@@ -28,10 +33,5 @@ public class Queen extends ChessPiece {
         if (isObstacleExist(chessBoard, line, column, toLine, toColumn)) return false;
 
         return true;
-    }
-
-    @Override
-    public String getSymbol() {
-        return "Q";
     }
 }
