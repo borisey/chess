@@ -17,6 +17,9 @@ public class Pawn extends ChessPiece {
         // Проверяю вышла ли фигура за пределы доски
         if (isPieceMoveOutBoard(toLine, toColumn)) return false;
 
+        // Проверяю, что фигура не перемещается в ту же клетку
+        if (isPieceMoveToSamePath(line, column, toLine, toColumn)) return false;
+
         // Пешка может ходить только вперед
         if ((getColor().equals("White")) && toLine <= line) return false;
         if ((getColor().equals("Black")) && line <= toLine) return false;
@@ -24,9 +27,6 @@ public class Pawn extends ChessPiece {
         // На первом ходу пешка может переместиться на одну или две клетки
         if ((line == 1 && getColor().equals("White")) && (toLine - line > 2)) return false;
         if (line == 6 && getColor().equals("Black") && (line - toLine > 2)) return false;
-
-        // Пешка не может переместиться в ту же клетку
-        if ((line == toLine) && (column == toColumn)) return false;
 
         // Если это не первый ход, то пешка может переместиться только на одну клетку
         if ((line != 1 && getColor().equals("White")) && (toLine - line > 1)) return false;

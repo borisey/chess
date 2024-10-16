@@ -17,8 +17,8 @@ public class King extends ChessPiece {
         // Проверяю вышла ли фигура за пределы доски
         if (isPieceMoveOutBoard(toLine, toColumn)) return false;
 
-        // Король не может переместиться в ту же клетку
-        if ((line == toLine) && (column == toColumn)) return false;
+        // Проверяю, что фигура не перемещается в ту же клетку
+        if (isPieceMoveToSamePath(line, column, toLine, toColumn)) return false;
 
         // Король может переместиться в любое поле вокруг себя
         if ((Math.abs(toLine - line) > 1) || (Math.abs(toColumn - column) > 1)) return false;

@@ -56,4 +56,11 @@ public abstract class ChessPiece {
     public boolean isPieceMoveOutBoard(int toLine, int toColumn) {
         return (toLine > 7 || toLine < 0 || toColumn < 0 || toColumn > 7);
     }
+
+    /**
+     * Метод проверяет что фигура не перемещается в ту же клетку
+     */
+    public boolean isPieceMoveToSamePath(int line, int column, int toLine, int toColumn) {
+        return ((line == toLine) && (column == toColumn));
+    }
 }

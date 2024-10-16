@@ -17,11 +17,11 @@ public class Rook extends ChessPiece {
         // Проверяю вышла ли фигура за пределы доски
         if (isPieceMoveOutBoard(toLine, toColumn)) return false;
 
+        // Проверяю, что фигура не перемещается в ту же клетку
+        if (isPieceMoveToSamePath(line, column, toLine, toColumn)) return false;
+
         // Ладья перемещаться только по прямой
         if (Math.abs(toColumn-column) > 0 && Math.abs(toLine-line) > 0) return false;
-
-        // Ладья не может переместиться в ту же клетку
-        if ((line == toLine) && (column == toColumn)) return false;
 
         // Ладья не может проходить через другие фигуры
         if (isObstacleExist(chessBoard, line, column, toLine, toColumn)) return false;

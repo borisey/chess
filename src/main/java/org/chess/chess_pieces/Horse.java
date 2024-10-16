@@ -17,14 +17,14 @@ public class Horse extends ChessPiece {
         // Проверяю вышла ли фигура за пределы доски
         if (isPieceMoveOutBoard(toLine, toColumn)) return false;
 
+        // Проверяю, что фигура не перемещается в ту же клетку
+        if (isPieceMoveToSamePath(line, column, toLine, toColumn)) return false;
+
         // Конь может перемещаться вертикально
         if (Math.abs(toLine - line) > 2 || Math.abs(toLine - line) < 1) return false;
 
         // Конь может перемещаться горизонтально
         if (Math.abs(toColumn - column) > 2 || (Math.abs(toColumn - column) < 1)) return false;
-
-        // Конь не может переместиться в ту же клетку
-        if ((line == toLine) && (column == toColumn)) return false;
 
         // Конь должен сменить линию и колонку
         if (Math.abs(line - toLine) <= 0 && Math.abs(toColumn - column) <= 0) return false;

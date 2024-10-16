@@ -17,11 +17,11 @@ public class Bishop extends ChessPiece {
         // Проверяю вышла ли фигура за пределы доски
         if (isPieceMoveOutBoard(toLine, toColumn)) return false;
 
+        // Проверяю, что фигура не перемещается в ту же клетку
+        if (isPieceMoveToSamePath(line, column, toLine, toColumn)) return false;
+
         // Слон может двигаться только по диагонали
         if (Math.abs(toLine - line) != Math.abs(toColumn - column)) return false;
-
-        // Слон не может переместиться в ту же клетку
-        if ((line == toLine) && (column == toColumn)) return false;
 
         // Слон не может проходить через другие фигуры
         if (isObstacleExist(chessBoard, line, column, toLine, toColumn)) return false;
