@@ -14,11 +14,8 @@ public class Pawn extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Проверяю вышла ли фигура за пределы доски
-        if (isPieceMoveOutBoard(toLine, toColumn)) return false;
-
-        // Проверяю, что фигура не перемещается в ту же клетку
-        if (isPieceMoveToSamePath(line, column, toLine, toColumn)) return false;
+        // Базовая проверка корректности хода (выход за пределы, переход в ту же клетку)
+        if (isBaseMoveIncorrect(line, column, toLine, toColumn)) return false;
 
         // Пешка может ходить только вперед
         if ((getColor().equals("White")) && toLine <= line) return false;

@@ -14,11 +14,8 @@ public class Horse extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Проверяю вышла ли фигура за пределы доски
-        if (isPieceMoveOutBoard(toLine, toColumn)) return false;
-
-        // Проверяю, что фигура не перемещается в ту же клетку
-        if (isPieceMoveToSamePath(line, column, toLine, toColumn)) return false;
+        // Базовая проверка корректности хода (выход за пределы, переход в ту же клетку)
+        if (isBaseMoveIncorrect(line, column, toLine, toColumn)) return false;
 
         // Конь может перемещаться вертикально
         if (Math.abs(toLine - line) > 2 || Math.abs(toLine - line) < 1) return false;

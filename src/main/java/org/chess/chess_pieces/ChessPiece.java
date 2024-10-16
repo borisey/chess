@@ -51,6 +51,13 @@ public abstract class ChessPiece {
     }
 
     /**
+     * Метод проводит базовую проверку корректности хода
+     */
+    public boolean isBaseMoveIncorrect(int line, int column, int toLine, int toColumn) {
+        return (isPieceMoveOutBoard(toLine, toColumn) || isPieceMoveToSamePath(line, column, toLine, toColumn));
+    }
+
+    /**
      * Метод проверяет вышла ли фигура за пределы доски
      */
     public boolean isPieceMoveOutBoard(int toLine, int toColumn) {
