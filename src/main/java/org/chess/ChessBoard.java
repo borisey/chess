@@ -76,7 +76,7 @@ public class ChessBoard {
                         && board[0][4].getColor().equals("White")
                         && board[0][0].check
                         && board[0][4].check
-                        && !new King("White").isUnderAttack(this, 0, 2)) { // Позиция не находится под атакой
+                        && new King("White").isUnderAttack(this, 0, 2)) { // Позиция не находится под атакой
                     board[0][4] = null;
                     board[0][2] = new King("White");
                     board[0][2].check = false;
@@ -97,7 +97,7 @@ public class ChessBoard {
                 if (board[7][0].getColor().equals("Black")
                         && board[7][4].getColor().equals("Black")
                         && board[7][0].check && board[7][4].check
-                        && !new King("Black").isUnderAttack(this, 7, 2)) {
+                        && new King("Black").isUnderAttack(this, 7, 2)) {
                     board[7][4] = null;
                     board[7][2] = new King("Black");
                     board[7][2].check = false;
@@ -121,7 +121,7 @@ public class ChessBoard {
                 if (board[0][7].getColor().equals("White")
                         && board[0][4].getColor().equals("White")
                         && board[0][7].check && board[0][4].check
-                        && !new King("White").isUnderAttack(this, 0, 6)) {
+                        && new King("White").isUnderAttack(this, 0, 6)) {
                     board[0][4] = null;
                     board[0][6] = new King("White");
                     board[0][7] = null;
@@ -139,7 +139,7 @@ public class ChessBoard {
                 if (board[7][7].getColor().equals("Black")
                         && board[7][4].getColor().equals("Black")
                         && board[7][7].check && board[7][4].check
-                        && !new King("Black").isUnderAttack(this, 7, 6)) {
+                        && new King("Black").isUnderAttack(this, 7, 6)) {
                     board[7][4] = null;
                     board[7][6] = new King("Black");
                     board[7][7] = null;
