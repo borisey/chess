@@ -14,8 +14,8 @@ public class King extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Король не может выйти за пределы доски
-        if (toLine > 7 || toLine < 0 || toColumn < 0 || toColumn > 7) return false;
+        // Проверяю вышла ли фигура за пределы доски
+        if (isPieceMoveOutBoard(toLine, toColumn)) return false;
 
         // Король не может переместиться в ту же клетку
         if ((line == toLine) && (column == toColumn)) return false;

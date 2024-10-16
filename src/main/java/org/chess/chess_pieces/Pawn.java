@@ -14,8 +14,8 @@ public class Pawn extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Пешка не может выйти за пределы доски
-        if (toLine > 7 || toLine < 0 || toColumn < 0 || toColumn > 7) return false;
+        // Проверяю вышла ли фигура за пределы доски
+        if (isPieceMoveOutBoard(toLine, toColumn)) return false;
 
         // Пешка может ходить только вперед
         if ((getColor().equals("White")) && toLine <= line) return false;

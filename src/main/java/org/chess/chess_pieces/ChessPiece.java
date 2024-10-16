@@ -49,4 +49,11 @@ public abstract class ChessPiece {
 
         return false;
     }
+
+    /**
+     * Метод проверяет вышла ли фигура за пределы доски
+     */
+    public boolean isPieceMoveOutBoard(int toLine, int toColumn) {
+        return (toLine > 7 || toLine < 0 || toColumn < 0 || toColumn > 7);
+    }
 }

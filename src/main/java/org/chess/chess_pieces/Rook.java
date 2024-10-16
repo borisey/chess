@@ -14,8 +14,8 @@ public class Rook extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Ладья не может выйти за пределы доски
-        if (toLine > 7 || toLine < 0 || toColumn < 0 || toColumn > 7) return false;
+        // Проверяю вышла ли фигура за пределы доски
+        if (isPieceMoveOutBoard(toLine, toColumn)) return false;
 
         // Ладья перемещаться только по прямой
         if (Math.abs(toColumn-column) > 0 && Math.abs(toLine-line) > 0) return false;

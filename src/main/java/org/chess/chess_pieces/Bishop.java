@@ -14,8 +14,8 @@ public class Bishop extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Слон не может выйти за пределы доски
-        if (toLine > 7 || toLine < 0 || toColumn < 0 || toColumn > 7) return false;
+        // Проверяю вышла ли фигура за пределы доски
+        if (isPieceMoveOutBoard(toLine, toColumn)) return false;
 
         // Слон может двигаться только по диагонали
         if (Math.abs(toLine - line) != Math.abs(toColumn - column)) return false;

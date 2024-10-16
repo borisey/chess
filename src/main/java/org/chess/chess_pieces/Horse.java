@@ -14,8 +14,8 @@ public class Horse extends ChessPiece {
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        // Конь не может выйти за пределы доски
-        if (toLine > 7 || toLine < 0 || toColumn < 0 || toColumn > 7) return false;
+        // Проверяю вышла ли фигура за пределы доски
+        if (isPieceMoveOutBoard(toLine, toColumn)) return false;
 
         // Конь может перемещаться вертикально
         if (Math.abs(toLine - line) > 2 || Math.abs(toLine - line) < 1) return false;
