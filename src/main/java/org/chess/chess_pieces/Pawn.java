@@ -27,6 +27,25 @@ public class Pawn extends ChessPiece {
         if ((line != 1 && getColor().equals("White")) && (toLine - line > 1)) return false;
         if (line != 6 && getColor().equals("Black") && (line - toLine > 1)) return false;
 
+        // Пешка должна ходить только по прямой, если она не съедает другую фигуру
+        if (getColor().equals("White")) {
+            if (chessBoard.board[toLine][toColumn] == null) {
+                if (column != toColumn) return false;
+            } else {
+                if (Math.abs(toColumn - column) != 1 && toLine - line != 1) return false;
+            }
+        }
+        if (getColor().equals("Black")) {
+            if (chessBoard.board[toLine][toColumn] == null) {
+                if (column != toColumn) return false;
+            } else {
+                if (Math.abs(toColumn - column) != 1 && line - toLine != 1) return false;
+            }
+        }
+
+        // Пешка не может проходить через другие фигуры
+        if (isObstacleExist(chessBoard, line, column, toLine, toColumn)) return false;
+
         return true;
     }
 
