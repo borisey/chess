@@ -18,6 +18,9 @@ public class Rook extends ChessPiece {
         // Ладья не может переместиться в ту же клетку
         if ((line == toLine) && (column == toColumn)) return false;
 
+        // Ладья не может проходить через другие фигуры
+        if (isObstacleExist(chessBoard, line, column, toLine, toColumn)) return false;
+
         return true;
     }
 
