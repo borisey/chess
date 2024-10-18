@@ -25,246 +25,104 @@ public class King extends ChessPiece {
 
     public boolean isUnderAttack(ChessBoard board, int line, int column) {
         if (board.castling0) {
-            if (getColor().equals("White")) {
-                if (board.board[line + 2][column - 1] != null
-                        && board.board[line + 2][column - 1].getSymbol().equals("H")
-                        && board.board[line + 2][column - 1].getColor().equals("Black")
-                ) return true;
-
-                if (board.board[line + 2][column + 1] != null
-                        && board.board[line + 2][column + 1].getSymbol().equals("H")
-                        && board.board[line + 2][column + 1].getColor().equals("Black")
-                ) return true;
-
-                if (board.board[line + 1][column + 2] != null
-                        && board.board[line + 1][column + 2].getSymbol().equals("H")
-                        && board.board[line + 1][column + 2].getColor().equals("Black")
-                ) return true;
-
-                if (board.board[line + 1][column - 2] != null
-                        && board.board[line + 1][column - 2].getSymbol().equals("H")
-                        && board.board[line + 1][column - 2].getColor().equals("Black")
-                ) return true;
-
-                if (board.board[line + 1][column - 2] != null
-                        && board.board[line + 1][column - 2].getSymbol().equals("P")
-                        && board.board[line + 1][column - 2].getColor().equals("White")
-                        && board.board[line + 1][column - 1] != null
-                        && board.board[line + 1][column - 1].getSymbol().equals("P")
-                        && board.board[line + 1][column - 1].getColor().equals("White")
-                        && board.board[line + 1][column] != null
-                        && board.board[line + 1][column].getSymbol().equals("P")
-                        && board.board[line + 1][column].getColor().equals("White")
-                        && board.board[line + 1][column + 1] != null
-                        && board.board[line + 1][column + 1].getSymbol().equals("P")
-                        && board.board[line + 1][column + 1].getColor().equals("White")
-                ) return false;
-
-                if (board.board[line + 1][column] == null
-                        || (board.board[line + 1][column] != null
-                        && (board.board[line + 1][column].getSymbol().equals("Q")
-                        || board.board[line + 1][column].getSymbol().equals("R"))
-                        && (board.board[line + 1][column].getColor().equals("Black")))) {
-                    boolean queenOrRook = false;
-                    for (int i = 1; i < 8; i++) {
-                        if (board.board[i][column] != null
-                                && (board.board[i][column].getSymbol().equals("Q") || board.board[i][column].getSymbol().equals("R"))
-                                && (board.board[i][column].getColor().equals("Black"))
-                        ) queenOrRook = true;
-                    }
-                    if (queenOrRook) return true;
-                }
-
-                if (board.board[line + 1][column - 1] != null
-                        && (board.board[line + 1][column - 1].getSymbol().equals("Q") || board.board[line + 1][column - 1].getSymbol().equals("B"))
-                        && board.board[line + 1][column - 1].getColor().equals("Black")
-                ) return true;
-
-                if (board.board[line + 2][column - 2] != null
-                        && board.board[line + 1][column - 1] == null
-                        && (board.board[line + 2][column - 2].getSymbol().equals("Q") || board.board[line + 2][column - 2].getSymbol().equals("B"))
-                        && board.board[line + 2][column - 2].getColor().equals("Black")
-                ) return true;
-
-                if (board.board[line + 1][column + 1] != null
-                        && (board.board[line + 1][column + 1].getSymbol().equals("Q") || board.board[line + 1][column + 1].getSymbol().equals("B"))
-                        && board.board[line + 1][column + 1].getColor().equals("Black")
-                ) return true;
-
-                if (board.board[line + 1][column + 1] == null) {
-                    boolean queenOrBishop = false;
-                    for (int i = 1; i < 7; i++) {
-                        for (int k = 3; k < 8; k++) {
-                            if (board.board[i][k] != null
-                                && (board.board[i][k].getSymbol().equals("Q") || board.board[i][k].getSymbol().equals("B"))
-                                && board.board[i][k].getColor().equals("Black")
-                            ) queenOrBishop = true;
-                        }
-                        if (queenOrBishop) return true;
-                    }
-                }
-                if (board.board[line + 1][column - 1] != null
-                        && board.board[line + 1][column - 1].getSymbol().equals("P")
-                        && board.board[line + 1][column - 1].getColor().equals("Black")
-                ) return true;
-
-                if (board.board[line + 1][column + 1] != null
-                        && board.board[line + 1][column + 1].getSymbol().equals("P")
-                        && board.board[line + 1][column + 1].getColor().equals("Black")
-                ) return true;
-            }
-
-            if (getColor().equals("Black")) {
-                if (board.board[line - 2][column - 1] != null
-                        && board.board[line - 2][column - 1].getSymbol().equals("H")
-                        && board.board[line - 2][column - 1].getColor().equals("White")
-                ) return true;
-
-                if (board.board[line - 2][column + 1] != null
-                        && board.board[line - 2][column + 1].getSymbol().equals("H")
-                        && board.board[line - 2][column + 1].getColor().equals("White")
-                ) return true;
-
-                if (board.board[line - 1][column - 2] != null
-                        && board.board[line - 1][column - 2].getSymbol().equals("H")
-                        && board.board[line - 1][column - 2].getColor().equals("White")
-                ) return true;
-
-                if (board.board[line - 1][column - 2] != null
-                        && board.board[line - 1][column - 2].getSymbol().equals("P")
-                        && board.board[line - 1][column - 2].getColor().equals("Black")
-                        && board.board[line - 1][column - 1] != null
-                        && board.board[line - 1][column - 1].getSymbol().equals("P")
-                        && board.board[line - 1][column - 1].getColor().equals("Black")
-                        && board.board[line - 1][column] != null
-                        && board.board[line - 1][column].getSymbol().equals("P")
-                        && board.board[line - 1][column].getColor().equals("Black")
-                        && board.board[line - 1][column + 1] != null
-                        && board.board[line - 1][column + 1].getSymbol().equals("P")
-                        && board.board[line - 1][column + 1].getColor().equals("Black")
-                ) return false;
-
-                if (board.board[line - 1][column] == null || ((board.board[line - 1][column].getSymbol().equals("Q") || board.board[line - 1][column].getSymbol().equals("R")) &&
-                        (board.board[line - 1][column].getColor().equals("White")))) {
-                    boolean queenOrRook = false;
-                    for (int i = 6; i >= 0; i--) {
-                        if (board.board[i][column] != null
-                                && (board.board[i][column].getSymbol().equals("Q") || board.board[i][column].getSymbol().equals("R"))
-                                && (board.board[i][column].getColor().equals("White"))
-                        ) queenOrRook = true;
-                    }
-                    if (queenOrRook) return true;
-                }
-
-                if (board.board[line - 1][column - 1] != null
-                        && (board.board[line - 1][column - 1].getSymbol().equals("Q") || board.board[line - 1][column - 1].getSymbol().equals("B"))
-                        && board.board[line - 1][column - 1].getColor().equals("White")
-                ) return true;
-
-                if (board.board[line - 2][column - 2] != null
-                        && board.board[line - 1][column - 1] == null
-                        && (board.board[line - 2][column - 2].getSymbol().equals("Q") || board.board[line - 2][column - 2].getSymbol().equals("B"))
-                        && board.board[line - 2][column - 2].getColor().equals("White")
-                ) return true;
-
-                if (board.board[line - 1][column + 1] != null
-                        && (board.board[line - 1][column + 1].getSymbol().equals("Q") || board.board[line - 1][column + 1].getSymbol().equals("B"))
-                        && board.board[line - 1][column + 1].getColor().equals("White")
-                ) return true;
-
-                if (board.board[line - 1][column + 1] == null) {
-                    boolean queenOrBishop = false;
-                    for (int i = 6; i >= 0; i--) {
-                        for (int k = 3; k < 8; k++) {
-                            if (board.board[i][k] != null
-                                    && (board.board[i][k].getSymbol().equals("Q") || board.board[i][k].getSymbol().equals("B"))
-                                    && board.board[i][k].getColor().equals("White")) queenOrBishop = true;
-                        }
-                        if (queenOrBishop) return true;
-                    }
-                }
-
-                if (board.board[line - 1][column - 1] != null
-                        && board.board[line - 1][column - 1].getSymbol().equals("P")
-                        && board.board[line - 1][column - 1].getColor().equals("White")
-                ) return true;
-
-                if (board.board[line - 1][column + 1] != null
-                        && board.board[line - 1][column + 1].getSymbol().equals("P")
-                        && board.board[line - 1][column + 1].getColor().equals("White")
-                ) return true;
-            }
-
-            return false;
+            return checkCastling0(board, line, column);
         }
 
         if (board.castling7) {
-            if (getColor().equals("White")) {
-                if (board.board[line + 2][column - 1] != null
-                        && board.board[line + 2][column - 1].getSymbol().equals("H")
-                        && board.board[line + 2][column - 1].getColor().equals("Black")
-                ) return true;
+            return checkCastling7(board, line, column);
+        }
 
-                if (board.board[line + 2][column + 1] != null
-                        && board.board[line + 2][column + 1].getSymbol().equals("H")
-                        && board.board[line + 2][column + 1].getColor().equals("Black")
-                ) return true;
+        return false;
+    }
 
-                if (board.board[line + 1][column - 2] != null
-                        && board.board[line + 1][column - 2].getSymbol().equals("H")
-                        && board.board[line + 1][column - 2].getColor().equals("Black")
-                ) return true;
+    private boolean checkCastling0(ChessBoard board, int line, int column) {
+        if (getColor().equals("White")) {
+            if (board.board[line + 2][column - 1] != null
+                    && board.board[line + 2][column - 1].getSymbol().equals("H")
+                    && board.board[line + 2][column - 1].getColor().equals("Black")
+            ) return true;
 
-                if (board.board[line + 1][column - 1] != null && board.board[line + 1][column - 1].getSymbol().equals("P")
-                        && board.board[line + 1][column - 1].getColor().equals("White")
-                        && board.board[line + 1][column] != null && board.board[line + 1][column].getSymbol().equals("P")
-                        && board.board[line + 1][column].getColor().equals("White")
-                        && board.board[line + 1][column + 1] != null && board.board[line + 1][column + 1].getSymbol().equals("P")
-                        && board.board[line + 1][column + 1].getColor().equals("White")
-                ) return false;
+            if (board.board[line + 2][column + 1] != null
+                    && board.board[line + 2][column + 1].getSymbol().equals("H")
+                    && board.board[line + 2][column + 1].getColor().equals("Black")
+            ) return true;
 
-                if (board.board[line + 1][column] == null ||((board.board[line + 1][column].getSymbol().equals("Q") || board.board[line + 1][column].getSymbol().equals("R")) &&
-                        (board.board[line + 1][column].getColor().equals("Black")))) {
-                    boolean queenOrRook = false;
-                    for (int i = 2; i < 8; i++) {
-                        if (board.board[i][column] != null
-                                && (board.board[i][column].getSymbol().equals("Q") || board.board[i][column].getSymbol().equals("R"))
-                                && (board.board[i][column].getColor().equals("Black"))
-                        ) queenOrRook = true;
-                    }
-                    if (queenOrRook) return true;
+            if (board.board[line + 1][column + 2] != null
+                    && board.board[line + 1][column + 2].getSymbol().equals("H")
+                    && board.board[line + 1][column + 2].getColor().equals("Black")
+            ) return true;
+
+            if (board.board[line + 1][column - 2] != null
+                    && board.board[line + 1][column - 2].getSymbol().equals("H")
+                    && board.board[line + 1][column - 2].getColor().equals("Black")
+            ) return true;
+
+            if (board.board[line + 1][column - 2] != null
+                    && board.board[line + 1][column - 2].getSymbol().equals("P")
+                    && board.board[line + 1][column - 2].getColor().equals("White")
+                    && board.board[line + 1][column - 1] != null
+                    && board.board[line + 1][column - 1].getSymbol().equals("P")
+                    && board.board[line + 1][column - 1].getColor().equals("White")
+                    && board.board[line + 1][column] != null
+                    && board.board[line + 1][column].getSymbol().equals("P")
+                    && board.board[line + 1][column].getColor().equals("White")
+                    && board.board[line + 1][column + 1] != null
+                    && board.board[line + 1][column + 1].getSymbol().equals("P")
+                    && board.board[line + 1][column + 1].getColor().equals("White")
+            ) return false;
+
+            if (board.board[line + 1][column] == null
+                    || (board.board[line + 1][column] != null
+                    && (board.board[line + 1][column].getSymbol().equals("Q")
+                    || board.board[line + 1][column].getSymbol().equals("R"))
+                    && (board.board[line + 1][column].getColor().equals("Black")))) {
+                boolean queenOrRook = false;
+                for (int i = 1; i < 8; i++) {
+                    if (board.board[i][column] != null
+                            && (board.board[i][column].getSymbol().equals("Q") || board.board[i][column].getSymbol().equals("R"))
+                            && (board.board[i][column].getColor().equals("Black"))
+                    ) queenOrRook = true;
                 }
-
-                if (board.board[line + 1][column + 1] != null
-                        && (board.board[line + 1][column + 1].getSymbol().equals("Q") || board.board[line + 1][column + 1].getSymbol().equals("B"))
-                        && board.board[line + 1][column + 1].getColor().equals("Black")
-                ) return true;
-
-                if (board.board[line + 1][column - 1] == null) {
-                    boolean queenOrBishop = false;
-                    for (int i = 1; i < 7; i++) {
-
-                        for (int k = 6; k >= 0; k--) {
-                            if (board.board[i][k] != null
-                                    && (board.board[i][k].getSymbol().equals("Q") || board.board[i][k].getSymbol().equals("B"))
-                                    && board.board[i][k].getColor().equals("Black")
-                            ) queenOrBishop = true;
-                        }
-
-                        if (queenOrBishop) return true;
-                    }
-                }
-
-                if (board.board[line + 1][column - 1] != null
-                        && board.board[line + 1][column - 1].getSymbol().equals("P")
-                        && board.board[line + 1][column - 1].getColor().equals("Black")
-                ) return true;
-
-                if (board.board[line + 1][column + 1] != null
-                        && board.board[line + 1][column + 1].getSymbol().equals("P")
-                        && board.board[line + 1][column + 1].getColor().equals("Black")
-                ) return true;
+                if (queenOrRook) return true;
             }
+
+            if (board.board[line + 1][column - 1] != null
+                    && (board.board[line + 1][column - 1].getSymbol().equals("Q") || board.board[line + 1][column - 1].getSymbol().equals("B"))
+                    && board.board[line + 1][column - 1].getColor().equals("Black")
+            ) return true;
+
+            if (board.board[line + 2][column - 2] != null
+                    && board.board[line + 1][column - 1] == null
+                    && (board.board[line + 2][column - 2].getSymbol().equals("Q") || board.board[line + 2][column - 2].getSymbol().equals("B"))
+                    && board.board[line + 2][column - 2].getColor().equals("Black")
+            ) return true;
+
+            if (board.board[line + 1][column + 1] != null
+                    && (board.board[line + 1][column + 1].getSymbol().equals("Q") || board.board[line + 1][column + 1].getSymbol().equals("B"))
+                    && board.board[line + 1][column + 1].getColor().equals("Black")
+            ) return true;
+
+            if (board.board[line + 1][column + 1] == null) {
+                boolean queenOrBishop = false;
+                for (int i = 1; i < 7; i++) {
+                    for (int k = 3; k < 8; k++) {
+                        if (board.board[i][k] != null
+                                && (board.board[i][k].getSymbol().equals("Q") || board.board[i][k].getSymbol().equals("B"))
+                                && board.board[i][k].getColor().equals("Black")
+                        ) queenOrBishop = true;
+                    }
+                    if (queenOrBishop) return true;
+                }
+            }
+            if (board.board[line + 1][column - 1] != null
+                    && board.board[line + 1][column - 1].getSymbol().equals("P")
+                    && board.board[line + 1][column - 1].getColor().equals("Black")
+            ) return true;
+
+            if (board.board[line + 1][column + 1] != null
+                    && board.board[line + 1][column + 1].getSymbol().equals("P")
+                    && board.board[line + 1][column + 1].getColor().equals("Black")
+            ) return true;
         }
 
         if (getColor().equals("Black")) {
@@ -283,7 +141,10 @@ public class King extends ChessPiece {
                     && board.board[line - 1][column - 2].getColor().equals("White")
             ) return true;
 
-            if (board.board[line - 1][column - 1] != null
+            if (board.board[line - 1][column - 2] != null
+                    && board.board[line - 1][column - 2].getSymbol().equals("P")
+                    && board.board[line - 1][column - 2].getColor().equals("Black")
+                    && board.board[line - 1][column - 1] != null
                     && board.board[line - 1][column - 1].getSymbol().equals("P")
                     && board.board[line - 1][column - 1].getColor().equals("Black")
                     && board.board[line - 1][column] != null
@@ -294,15 +155,12 @@ public class King extends ChessPiece {
                     && board.board[line - 1][column + 1].getColor().equals("Black")
             ) return false;
 
-            if (board.board[line - 1][column] == null
-                    || ((board.board[line - 1][column].getSymbol().equals("Q")
-                    || board.board[line - 1][column].getSymbol().equals("R"))
-                    && (board.board[line - 1][column].getColor().equals("White")))) {
+            if (board.board[line - 1][column] == null || ((board.board[line - 1][column].getSymbol().equals("Q") || board.board[line - 1][column].getSymbol().equals("R")) &&
+                    (board.board[line - 1][column].getColor().equals("White")))) {
                 boolean queenOrRook = false;
                 for (int i = 6; i >= 0; i--) {
                     if (board.board[i][column] != null
-                            && (board.board[i][column].getSymbol().equals("Q")
-                            || board.board[i][column].getSymbol().equals("R"))
+                            && (board.board[i][column].getSymbol().equals("Q") || board.board[i][column].getSymbol().equals("R"))
                             && (board.board[i][column].getColor().equals("White"))
                     ) queenOrRook = true;
                 }
@@ -331,8 +189,7 @@ public class King extends ChessPiece {
                     for (int k = 3; k < 8; k++) {
                         if (board.board[i][k] != null
                                 && (board.board[i][k].getSymbol().equals("Q") || board.board[i][k].getSymbol().equals("B"))
-                                && board.board[i][k].getColor().equals("White")
-                        ) queenOrBishop = true;
+                                && board.board[i][k].getColor().equals("White")) queenOrBishop = true;
                     }
                     if (queenOrBishop) return true;
                 }
@@ -348,6 +205,13 @@ public class King extends ChessPiece {
                     && board.board[line - 1][column + 1].getColor().equals("White")
             ) return true;
         }
+
+        return false;
+    }
+
+    private boolean checkCastling7(ChessBoard board, int line, int column) {
+
+
 
         return false;
     }
