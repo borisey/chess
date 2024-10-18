@@ -149,18 +149,21 @@ public class King extends ChessPiece {
             }
 
             if (board.board[line - 1][column - 1] != null
-                    && (board.board[line - 1][column - 1].getSymbol().equals("Q") || board.board[line - 1][column - 1].getSymbol().equals("B"))
+                    && (board.board[line - 1][column - 1].getSymbol().equals("Q")
+                    || board.board[line - 1][column - 1].getSymbol().equals("B"))
                     && board.board[line - 1][column - 1].getColor().equals("White")
             ) return true;
 
             if (board.board[line - 2][column - 2] != null
                     && board.board[line - 1][column - 1] == null
-                    && (board.board[line - 2][column - 2].getSymbol().equals("Q") || board.board[line - 2][column - 2].getSymbol().equals("B"))
+                    && (board.board[line - 2][column - 2].getSymbol().equals("Q")
+                    || board.board[line - 2][column - 2].getSymbol().equals("B"))
                     && board.board[line - 2][column - 2].getColor().equals("White")
             ) return true;
 
             if (board.board[line - 1][column + 1] != null
-                    && (board.board[line - 1][column + 1].getSymbol().equals("Q") || board.board[line - 1][column + 1].getSymbol().equals("B"))
+                    && (board.board[line - 1][column + 1].getSymbol().equals("Q")
+                    || board.board[line - 1][column + 1].getSymbol().equals("B"))
                     && board.board[line - 1][column + 1].getColor().equals("White")
             ) return true;
 
@@ -169,7 +172,8 @@ public class King extends ChessPiece {
                 for (int i = 6; i >= 0; i--) {
                     for (int k = 3; k < 8; k++) {
                         if (board.board[i][k] != null
-                                && (board.board[i][k].getSymbol().equals("Q") || board.board[i][k].getSymbol().equals("B"))
+                                && (board.board[i][k].getSymbol().equals("Q")
+                                || board.board[i][k].getSymbol().equals("B"))
                                 && board.board[i][k].getColor().equals("White")
                         ) queenOrBishop = true;
                     }
