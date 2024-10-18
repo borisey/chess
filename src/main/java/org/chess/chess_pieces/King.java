@@ -31,7 +31,7 @@ public class King extends ChessPiece {
         if (board.castling7) {
             return checkIsUnderAttack(board, line, column);
         }
-        
+
         return checkIsUnderAttack(board, line, column);
     }
 
@@ -60,8 +60,11 @@ public class King extends ChessPiece {
                     && board.board[line + 1][column + 1].getColor().equals("White")
             ) return false;
 
-            if (board.board[line + 1][column] == null ||((board.board[line + 1][column].getSymbol().equals("Q") || board.board[line + 1][column].getSymbol().equals("R")) &&
-                    (board.board[line + 1][column].getColor().equals("Black")))) {
+            if (board.board[line + 1][column] == null
+                    ||((board.board[line + 1][column].getSymbol().equals("Q")
+                    || board.board[line + 1][column].getSymbol().equals("R"))
+                    && (board.board[line + 1][column].getColor().equals("Black")))
+            ) {
                 boolean queenOrRook = false;
                 for (int i = 2; i < 8; i++) {
                     if (board.board[i][column] != null
