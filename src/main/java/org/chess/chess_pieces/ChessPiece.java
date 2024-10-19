@@ -30,7 +30,7 @@ public abstract class ChessPiece {
      * Метод проверяет, существует ли препятствие
      */
     public boolean isObstacleExist(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        if (chessBoard.board[toLine][toColumn] != null && chessBoard.board[toLine][toColumn].getColor().equals("White")) {
+        if (chessBoard.board[toLine][toColumn] != null && chessBoard.board[toLine][toColumn].getColor().equals(chessBoard.nowPlayerColor())) {
             return true;
         }
 

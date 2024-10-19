@@ -33,7 +33,7 @@ public class King extends ChessPiece {
 
     public boolean isUnderAttack(ChessBoard board, int line, int column) {
         if (isHorseAttack(board, line, column)) return true;
-        if (isDiagonalAttack(board, line, column)) return true;
+//        if (isDiagonalAttack(board, line, column)) return true;
         if (isVerticalAttack(board, line, column)) return true;
         if (isHorizontalAttack(board, line, column)) return true;
         if (isPawnAttack(board, line, column)) return true;
