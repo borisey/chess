@@ -273,7 +273,7 @@ public class King extends ChessPiece {
             colorAttackPiece = "Black";
         }
 
-        // Проверяю по диагонали вниз влево
+        // Вниз влево
         while (!isPieceMoveOutBoard(line - 1, column - 1)) {
             --line;
             --column;
@@ -285,7 +285,7 @@ public class King extends ChessPiece {
             }
         }
 
-        // Проверяю по диагонали вниз и вправо
+        // Вниз и вправо
         while (!isPieceMoveOutBoard(line - 1, column + 1)) {
             --line;
             ++column;
@@ -297,7 +297,7 @@ public class King extends ChessPiece {
             }
         }
 
-        // Проверяю по диагонали вверх и влево
+        // Вверх и влево
         while (!isPieceMoveOutBoard(line + 1, column - 1)) {
             ++line;
             --column;
@@ -309,7 +309,7 @@ public class King extends ChessPiece {
             }
         }
 
-        // Проверяю по диагонали вверх и вправо
+        // Вверх и вправо
         while (!isPieceMoveOutBoard(line + 1, column + 1)) {
             ++line;
             ++column;
@@ -335,7 +335,7 @@ public class King extends ChessPiece {
             colorAttackPiece = "Black";
         }
 
-        // Проверяю по вертикали вверх
+        // Вверх
         while (!isPieceMoveOutBoard(line + 1, column)) {
             ++line;
 
@@ -346,7 +346,7 @@ public class King extends ChessPiece {
             }
         }
 
-        // Проверяю по вертикали вниз
+        // Вниз
         while (!isPieceMoveOutBoard(line - 1, column)) {
             --line;
 
