@@ -230,7 +230,7 @@ public class King extends ChessPiece {
                 ) return true;
             }
         }
-        
+
         if (isHorseAttack(board, line, column)) return true;
         if (isDiagonalAttack(board, line, column)) return true;
 
