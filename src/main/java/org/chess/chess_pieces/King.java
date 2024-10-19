@@ -347,8 +347,8 @@ public class King extends ChessPiece {
         }
 
         // Проверяю по вертикали вниз
-        while (!isPieceMoveOutBoard(line + 1, column)) {
-            ++line;
+        while (!isPieceMoveOutBoard(line - 1, column)) {
+            --line;
 
             if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("R"))) {
                 if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("R")) && board.board[line][column].getColor().equals(colorAttackPiece)) {
