@@ -5,25 +5,14 @@ import java.util.ArrayList;
 
 public abstract class ChessPiece {
     public String color;
-    public String attackPieceColor;
     public boolean check = true;
 
     public ChessPiece(String color) {
         this.color = color;
-
-        this.attackPieceColor = "White";
-
-        if (color.equals("White")) {
-            this.attackPieceColor = "Black";
-        }
     }
 
     public String getColor() {
         return this.color;
-    }
-
-    public String getAttackPieceColor() {
-        return this.attackPieceColor;
     }
 
     public abstract boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn);
