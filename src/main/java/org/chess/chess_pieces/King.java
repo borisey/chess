@@ -233,6 +233,7 @@ public class King extends ChessPiece {
 
         if (isHorseAttack(board, line, column)) return true;
         if (isDiagonalAttack(board, line, column)) return true;
+        if (isVerticalAttack(board, line, column)) return true;
 
 
         return false;
@@ -315,6 +316,42 @@ public class King extends ChessPiece {
 
             if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("B"))) {
                 if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("B")) && board.board[line][column].getColor().equals(colorAttackPiece)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Проверяю атаку по вертикали
+     */
+    public boolean isVerticalAttack(ChessBoard board, int line, int column) {
+        String colorAttackPiece = "";
+        if (getColor().equals("Black")) {
+            colorAttackPiece = "White";
+        } else {
+            colorAttackPiece = "Black";
+        }
+
+        // Проверяю по вертикали вверх
+        while (!isPieceMoveOutBoard(line + 1, column)) {
+            ++line;
+
+            if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("R"))) {
+                if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("R")) && board.board[line][column].getColor().equals(colorAttackPiece)) {
+                    return true;
+                }
+            }
+        }
+
+        // Проверяю по вертикали вниз
+        while (!isPieceMoveOutBoard(line + 1, column)) {
+            ++line;
+
+            if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("R"))) {
+                if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("R")) && board.board[line][column].getColor().equals(colorAttackPiece)) {
                     return true;
                 }
             }
