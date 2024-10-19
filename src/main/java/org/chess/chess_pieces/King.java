@@ -230,53 +230,10 @@ public class King extends ChessPiece {
                 ) return true;
             }
         }
+        
+        if (isHorseAttack(board, line, column)) return true;
+        if (isDiagonalAttack(board, line, column)) return true;
 
-
-        // BLACK KING
-        if (getColor().equals("Black")){
-            // Проверка угрозы от белого коня
-            if (getColor().equals("Black")) {
-                if (!isPieceMoveOutBoard(line - 2, column - 1) && board.board[line - 2][column - 1] != null && board.board[line - 2][column - 1].getSymbol().equals("H") && board.board[line - 2][column - 1].getColor().equals("White")) return true;
-                if (!isPieceMoveOutBoard(line - 2, column + 1) && board.board[line - 2][column + 1] != null && board.board[line - 2][column + 1].getSymbol().equals("H") && board.board[line - 2][column + 1].getColor().equals("White")) return true;
-                if (!isPieceMoveOutBoard(line + 2, column - 1) && board.board[line + 2][column - 1] != null && board.board[line + 2][column - 1].getSymbol().equals("H") && board.board[line + 2][column - 1].getColor().equals("White")) return true;
-                if (!isPieceMoveOutBoard(line + 2, column + 1) && board.board[line + 2][column + 1] != null && board.board[line + 2][column + 1].getSymbol().equals("H") && board.board[line + 2][column + 1].getColor().equals("White")) return true;
-                if (!isPieceMoveOutBoard(line - 1, column - 1) && board.board[line - 1][column - 2] != null && board.board[line - 1][column - 2].getSymbol().equals("H") && board.board[line - 1][column - 2].getColor().equals("White")) return true;
-                if (!isPieceMoveOutBoard(line - 1, column + 2) && board.board[line - 1][column + 2] != null && board.board[line - 1][column + 2].getSymbol().equals("H") && board.board[line - 1][column + 2].getColor().equals("White")) return true;
-                if (!isPieceMoveOutBoard(line + 1, column - 2) && board.board[line + 1][column - 2] != null && board.board[line + 1][column - 2].getSymbol().equals("H") && board.board[line + 1][column - 2].getColor().equals("White")) return true;
-                if (!isPieceMoveOutBoard(line + 1, column + 2) && board.board[line + 1][column + 2] != null && board.board[line + 1][column + 2].getSymbol().equals("H") && board.board[line + 1][column + 2].getColor().equals("White")) return true;
-
-                //rook or queen - work
-//                if (board.board[line - 1][column] == null || ((board.board[line - 1][column].getSymbol().equals("Q") || board.board[line - 1][column].getSymbol().equals("R")) &&
-//                        (board.board[line - 1][column].getColor().equals("White")))) {
-//                    boolean queenOrRook = false;
-//                    for (int i = 7; i >= 0; i--) {
-//                        if (
-//                                board.board[i][column] != null &&
-//                                (board.board[i][column].getSymbol().equals("Q") || board.board[i][column].getSymbol().equals("R")) &&
-//                                (board.board[i][column].getColor().equals("White"))
-//                        ) return true;
-//                    }
-//                }
-
-
-                if (isDiagonalAttack(board, line, column)) {
-                    return true;
-                }
-
-
-
-
-//                //pawns - work
-//                if (board.board[line - 1][column - 1] != null &&
-//                        board.board[line - 1][column - 1].getSymbol().equals("P") &&
-//                        board.board[line - 1][column - 1].getColor().equals("White")
-//                ) return true;
-//                if (board.board[line - 1][column + 1] != null &&
-//                        board.board[line - 1][column + 1].getSymbol().equals("P") &&
-//                        board.board[line - 1][column + 1].getColor().equals("White")
-//                ) return true;
-            }
-        }
 
         return false;
     }
@@ -339,6 +296,26 @@ public class King extends ChessPiece {
                 }
             }
         }
+
+        return false;
+    }
+
+    public boolean isHorseAttack(ChessBoard board, int line, int column) {
+        String colorAttackPiece = "";
+        if (getColor().equals("Black")) {
+            colorAttackPiece = "White";
+        } else {
+            colorAttackPiece = "Black";
+        }
+
+        if (!isPieceMoveOutBoard(line - 2, column - 1) && board.board[line - 2][column - 1] != null && board.board[line - 2][column - 1].getSymbol().equals("H") && board.board[line - 2][column - 1].getColor().equals(colorAttackPiece)) return true;
+        if (!isPieceMoveOutBoard(line - 2, column + 1) && board.board[line - 2][column + 1] != null && board.board[line - 2][column + 1].getSymbol().equals("H") && board.board[line - 2][column + 1].getColor().equals(colorAttackPiece)) return true;
+        if (!isPieceMoveOutBoard(line + 2, column - 1) && board.board[line + 2][column - 1] != null && board.board[line + 2][column - 1].getSymbol().equals("H") && board.board[line + 2][column - 1].getColor().equals(colorAttackPiece)) return true;
+        if (!isPieceMoveOutBoard(line + 2, column + 1) && board.board[line + 2][column + 1] != null && board.board[line + 2][column + 1].getSymbol().equals("H") && board.board[line + 2][column + 1].getColor().equals(colorAttackPiece)) return true;
+        if (!isPieceMoveOutBoard(line - 1, column - 1) && board.board[line - 1][column - 2] != null && board.board[line - 1][column - 2].getSymbol().equals("H") && board.board[line - 1][column - 2].getColor().equals(colorAttackPiece)) return true;
+        if (!isPieceMoveOutBoard(line - 1, column + 2) && board.board[line - 1][column + 2] != null && board.board[line - 1][column + 2].getSymbol().equals("H") && board.board[line - 1][column + 2].getColor().equals(colorAttackPiece)) return true;
+        if (!isPieceMoveOutBoard(line + 1, column - 2) && board.board[line + 1][column - 2] != null && board.board[line + 1][column - 2].getSymbol().equals("H") && board.board[line + 1][column - 2].getColor().equals(colorAttackPiece)) return true;
+        if (!isPieceMoveOutBoard(line + 1, column + 2) && board.board[line + 1][column + 2] != null && board.board[line + 1][column + 2].getSymbol().equals("H") && board.board[line + 1][column + 2].getColor().equals(colorAttackPiece)) return true;
 
         return false;
     }
