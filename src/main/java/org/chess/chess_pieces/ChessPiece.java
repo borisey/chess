@@ -38,7 +38,7 @@ public abstract class ChessPiece {
     }
 
     /**
-     * Метод проверяет, существует ли припятствие
+     * Метод проверяет, существует ли препятствие
      */
     public boolean isObstacleExist(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         ArrayList<ChessPiece> trajectory = new ArrayList<>();
