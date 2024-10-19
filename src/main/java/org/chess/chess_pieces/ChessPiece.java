@@ -41,16 +41,19 @@ public abstract class ChessPiece {
      * Метод проверяет, существует ли препятствие
      */
     public boolean isObstacleExist(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        ArrayList<ChessPiece> trajectory = new ArrayList<>();
+        if (chessBoard.board[toLine][toColumn] != null && chessBoard.board[toLine][toColumn].getColor().equals("White")) {
+            return true;
+        }
 
+        ArrayList<ChessPiece> trajectory = new ArrayList<>();
         if (line == toLine) {
-            for (int i = column + 1; i < toColumn; i++) {
+            for (int i = column+1; i < toColumn; i++) {
                 trajectory.add(chessBoard.board[line][i]);
             }
         }
 
         if (column == toColumn) {
-            for (int i = line + 1; i < toLine; i++) {
+            for (int i = line+1; i < toLine; i++) {
                 trajectory.add(chessBoard.board[i][column]);
             }
         }
