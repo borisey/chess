@@ -285,49 +285,56 @@ public class King extends ChessPiece {
      * Проверяю атаку по диагонали
      */
     public boolean isDiagonalAttack(ChessBoard board, int line, int column) {
-        // Проверяем по диагонали вниз влево
+        String colorAttackPiece = "";
+        if (getColor().equals("Black")) {
+            colorAttackPiece = "White";
+        } else {
+            colorAttackPiece = "Black";
+        }
+
+        // Проверяю по диагонали вниз влево
         while (!isPieceMoveOutBoard(line - 1, column - 1)) {
             --line;
             --column;
 
             if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("B"))) {
-                if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("B")) && board.board[line][column].getColor().equals("White")) {
+                if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("B")) && board.board[line][column].getColor().equals(colorAttackPiece)) {
                     return true;
                 }
             }
         }
 
-        // Проверяем по диагонали вниз и вправо
+        // Проверяю по диагонали вниз и вправо
         while (!isPieceMoveOutBoard(line - 1, column + 1)) {
             --line;
             ++column;
 
             if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("B"))) {
-                if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("B")) && board.board[line][column].getColor().equals("White")) {
+                if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("B")) && board.board[line][column].getColor().equals(colorAttackPiece)) {
                     return true;
                 }
             }
         }
 
-        // Проверяем по диагонали вверх и влево
+        // Проверяю по диагонали вверх и влево
         while (!isPieceMoveOutBoard(line + 1, column - 1)) {
             ++line;
             --column;
 
             if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("B"))) {
-                if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("B")) && board.board[line][column].getColor().equals("White")) {
+                if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("B")) && board.board[line][column].getColor().equals(colorAttackPiece)) {
                     return true;
                 }
             }
         }
 
-        // Проверяем по диагонали вверх и вправо
+        // Проверяю по диагонали вверх и вправо
         while (!isPieceMoveOutBoard(line + 1, column + 1)) {
             ++line;
             ++column;
 
             if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("B"))) {
-                if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("B")) && board.board[line][column].getColor().equals("White")) {
+                if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("B")) && board.board[line][column].getColor().equals(colorAttackPiece)) {
                     return true;
                 }
             }
