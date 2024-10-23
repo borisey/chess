@@ -78,7 +78,7 @@ public class King extends ChessPiece {
             if (board.board[toLine][toColumn] != null) {
                 if (!board.board[toLine][toColumn].getSymbol().equals("Q")
                         && !board.board[toLine][toColumn].getSymbol().equals("B")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals("Black"))
+                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
@@ -101,7 +101,7 @@ public class King extends ChessPiece {
             if (board.board[toLine][toColumn] != null) {
                 if (!board.board[toLine][toColumn].getSymbol().equals("Q")
                         && !board.board[toLine][toColumn].getSymbol().equals("B")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals("Black"))
+                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
@@ -124,7 +124,7 @@ public class King extends ChessPiece {
             if (board.board[toLine][toColumn] != null) {
                 if (!board.board[toLine][toColumn].getSymbol().equals("Q")
                         && !board.board[toLine][toColumn].getSymbol().equals("B")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals("Black"))
+                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
@@ -147,7 +147,7 @@ public class King extends ChessPiece {
             if (board.board[toLine][toColumn] != null) {
                 if (!board.board[toLine][toColumn].getSymbol().equals("Q")
                         && !board.board[toLine][toColumn].getSymbol().equals("B")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals("Black"))
+                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
@@ -172,7 +172,7 @@ public class King extends ChessPiece {
             if (board.board[toLine][toColumn] != null) {
                 if (!board.board[toLine][toColumn].getSymbol().equals("Q")
                         && !board.board[toLine][toColumn].getSymbol().equals("R")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals("Black"))
+                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
@@ -190,7 +190,7 @@ public class King extends ChessPiece {
             if (board.board[toLine][toColumn] != null) {
                 if (!board.board[toLine][toColumn].getSymbol().equals("Q")
                         && !board.board[toLine][toColumn].getSymbol().equals("R")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals("Black"))
+                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
@@ -217,7 +217,7 @@ public class King extends ChessPiece {
             if (board.board[toLine][toColumn] != null) {
                 if (!board.board[toLine][toColumn].getSymbol().equals("Q")
                         && !board.board[toLine][toColumn].getSymbol().equals("R")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals("Black"))
+                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
@@ -236,7 +236,7 @@ public class King extends ChessPiece {
             if (board.board[toLine][toColumn] != null) {
                 if (!board.board[toLine][toColumn].getSymbol().equals("Q")
                         && !board.board[toLine][toColumn].getSymbol().equals("R")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals("Black"))
+                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
