@@ -75,8 +75,11 @@ public class King extends ChessPiece {
             --toLine;
             --toColumn;
 
-            if (board.board[toLine][toColumn] != null && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals("Black"))) {
-                if (!board.board[toLine][toColumn].getSymbol().equals("Q")) {
+            System.out.println(toLine);
+            System.out.println(toColumn);
+
+            if (board.board[toLine][toColumn] != null) {
+                if (!board.board[toLine][toColumn].getSymbol().equals("Q") && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals("Black"))) {
                     break;
                 }
 
