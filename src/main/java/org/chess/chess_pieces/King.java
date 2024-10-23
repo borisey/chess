@@ -141,7 +141,7 @@ public class King extends ChessPiece {
         while (!isPieceMoveOutBoard(line + 1, column)) {
             ++line;
 
-            if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("R"))) {
+            if (board.board[line][column] != null) {
                 if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("R")) && board.board[line][column].getColor().equals("White")) {
                     return true;
                 }
@@ -152,7 +152,7 @@ public class King extends ChessPiece {
         while (!isPieceMoveOutBoard(line - 1, column)) {
             --line;
 
-            if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("R"))) {
+            if (board.board[line][column] != null) {
                 if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("R")) && board.board[line][column].getColor().equals("White")) {
                     return true;
                 }
@@ -170,7 +170,7 @@ public class King extends ChessPiece {
         while (!isPieceMoveOutBoard(line, column + 1)) {
             ++column;
 
-            if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("R"))) {
+            if (board.board[line][column] != null) {
                 if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("R")) && board.board[line][column].getColor().equals("White")) {
                     return true;
                 }
@@ -181,7 +181,7 @@ public class King extends ChessPiece {
         while (!isPieceMoveOutBoard(line, column - 1)) {
             --column;
 
-            if (board.board[line][column] != null && (!board.board[line][column].getSymbol().equals("Q") || !board.board[line][column].getSymbol().equals("R"))) {
+            if (board.board[line][column] != null) {
                 if ((board.board[line][column].getSymbol().equals("Q") || board.board[line][column].getSymbol().equals("R")) && board.board[line][column].getColor().equals("White")) {
                     return true;
                 }
