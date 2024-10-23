@@ -28,7 +28,7 @@ public class King extends ChessPiece {
         if (isUnderAttack(chessBoard, toLine, toColumn)) return false;
 
         // Король может переместиться в любое поле вокруг себя
-        return (Math.abs(toLine - toLine) <= 1) && (Math.abs(toColumn - toColumn) <= 1);
+        return (Math.abs(toLine - line) <= 1) && (Math.abs(toColumn - column) <= 1);
     }
 
     public boolean isUnderAttack(ChessBoard board, int toLine, int toColumn) {
