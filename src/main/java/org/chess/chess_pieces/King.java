@@ -163,6 +163,7 @@ public class King extends ChessPiece {
                     break;
                 }
 
+                // Если на пути фигура, которая может съесть - возвращаем
                 if (board.board[toLine][toColumn].getColor().equals("White")) {
                     return true;
                 }
@@ -178,10 +179,10 @@ public class King extends ChessPiece {
                 System.out.println(toColumn);
                 System.out.println(board.board[toLine][toColumn]);
                 // Если на пути другая фигура - выходим из цикла
-//                if ((!board.board[toLine][toColumn].getSymbol().equals("Q"))) {
-//                    System.out.println("Exit");
-//                    break;
-//                }
+                if ((!board.board[toLine][toColumn].getSymbol().equals("Q")) && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals("Black")) ) {
+                    System.out.println("Exit");
+                    break;
+                }
 
                 if (board.board[toLine][toColumn].getSymbol().equals("Q") && board.board[toLine][toColumn].getColor().equals("White")) {
                     return true;
