@@ -36,13 +36,13 @@ public abstract class ChessPiece {
 
         ArrayList<ChessPiece> trajectory = new ArrayList<>();
         if (line == toLine) {
-            for (int i = column+1; i < toColumn; i++) {
+            for (int i = column + 1; i < toColumn; i++) {
                 trajectory.add(chessBoard.board[line][i]);
             }
         }
 
         if (column == toColumn) {
-            for (int i = line+1; i < toLine; i++) {
+            for (int i = line + 1; i < toLine; i++) {
                 trajectory.add(chessBoard.board[i][column]);
             }
         }
