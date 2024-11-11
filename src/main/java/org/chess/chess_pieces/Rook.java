@@ -17,7 +17,7 @@ public class Rook extends ChessPiece {
         // Базовая проверка корректности хода (запрет проходить через другие фигуры, запрет выхода за пределы, запрет перехода в ту же клетку)
         if (!isBaseMoveCorrect(chessBoard, line, column, toLine, toColumn)) return false;
 
-        // Ладья перемещаться только по прямой
+        // Ладья может перемещаться только по прямой
         if (Math.abs(toColumn-column) > 0 && Math.abs(toLine-line) > 0) return false;
 
         return true;
