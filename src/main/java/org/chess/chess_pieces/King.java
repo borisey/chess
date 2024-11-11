@@ -183,8 +183,6 @@ public class King extends ChessPiece {
                 if (board.board[checkedLine][checkedColumn].getColor().equals(getAttackPieceColor(board))
                     && checkedLine != toLine  // Король должен иметь возможность съесть угрожающую фигуру
                 ) {
-                    System.out.println(186);
-
                     return true;
                 }
             }
@@ -204,7 +202,7 @@ public class King extends ChessPiece {
 
                 if (board.board[checkedLine][checkedColumn].getColor().equals(getAttackPieceColor(board))
                         && checkedLine != toLine // Король должен иметь возможность съесть угрожающую фигуру
-                ) {                    System.out.println(207);
+                ) {
                     return true;
                 }
             }
