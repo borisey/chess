@@ -165,37 +165,46 @@ public class King extends ChessPiece {
      * Проверяю атаку по вертикали
      */
     public boolean isVerticalAttack(ChessBoard board, int toLine, int toColumn) {
-        // Вверх
-        while (!isPieceMoveOutBoard(toLine + 1, toColumn)) {
-            ++toLine;
+        int checkedLine   = toLine;
+        int checkedColumn = toColumn;
 
-            if (board.board[toLine][toColumn] != null) {
-                if (!board.board[toLine][toColumn].getSymbol().equals("Q")
-                        && !board.board[toLine][toColumn].getSymbol().equals("R")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
+        // Вверх
+        while (!isPieceMoveOutBoard(checkedLine + 1, checkedColumn)) {
+            ++checkedLine;
+
+            if (board.board[checkedLine][checkedColumn] != null) {
+                if (!board.board[checkedLine][checkedColumn].getSymbol().equals("Q")
+                        && !board.board[checkedLine][checkedColumn].getSymbol().equals("R")
+                        && (!board.board[checkedLine][checkedColumn].getSymbol().equals("K") && !board.board[checkedLine][checkedColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
 
-                if (board.board[toLine][toColumn].getColor().equals(getAttackPieceColor(board))) {
+                if (board.board[checkedLine][checkedColumn].getColor().equals(getAttackPieceColor(board))
+                    && checkedLine != toLine  // Король должен иметь возможность съесть угрожающую фигуру
+                ) {
+                    System.out.println(186);
+
                     return true;
                 }
             }
         }
 
         // Вниз
-        while (!isPieceMoveOutBoard(toLine - 1, toColumn)) {
-            --toLine;
+        while (!isPieceMoveOutBoard(checkedLine - 1, checkedColumn)) {
+            --checkedLine;
 
-            if (board.board[toLine][toColumn] != null) {
-                if (!board.board[toLine][toColumn].getSymbol().equals("Q")
-                        && !board.board[toLine][toColumn].getSymbol().equals("R")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
+            if (board.board[checkedLine][checkedColumn] != null) {
+                if (!board.board[checkedLine][checkedColumn].getSymbol().equals("Q")
+                        && !board.board[checkedLine][checkedColumn].getSymbol().equals("R")
+                        && (!board.board[checkedLine][checkedColumn].getSymbol().equals("K") && !board.board[checkedLine][checkedColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
 
-                if (board.board[toLine][toColumn].getColor().equals(getAttackPieceColor(board))) {
+                if (board.board[checkedLine][checkedColumn].getColor().equals(getAttackPieceColor(board))
+                        && checkedLine != toLine // Король должен иметь возможность съесть угрожающую фигуру
+                ) {                    System.out.println(207);
                     return true;
                 }
             }
@@ -208,40 +217,44 @@ public class King extends ChessPiece {
      * Проверяю атаку по горизонтали
      */
     public boolean isHorizontalAttack(ChessBoard board, int toLine, int toColumn) {
-        int counter = 0;
+        int checkedColumn = toColumn;
+        int checkedLine   = toLine;
 
         // Вправо
-        while (!isPieceMoveOutBoard(toLine, toColumn + 1)) {
-            ++toColumn;
+        while (!isPieceMoveOutBoard(checkedLine, checkedColumn + 1)) {
+            ++checkedColumn;
 
-            if (board.board[toLine][toColumn] != null) {
-                if (!board.board[toLine][toColumn].getSymbol().equals("Q")
-                        && !board.board[toLine][toColumn].getSymbol().equals("R")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
+            if (board.board[checkedLine][checkedColumn] != null) {
+                if (!board.board[checkedLine][checkedColumn].getSymbol().equals("Q")
+                        && !board.board[checkedLine][checkedColumn].getSymbol().equals("R")
+                        && (!board.board[checkedLine][checkedColumn].getSymbol().equals("K") && !board.board[checkedLine][checkedColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
 
-                if (board.board[toLine][toColumn].getColor().equals(getAttackPieceColor(board))) {
+                if (board.board[checkedLine][checkedColumn].getColor().equals(getAttackPieceColor(board))
+                        && checkedColumn != toColumn  // Король должен иметь возможность съесть угрожающую фигуру
+                ) {
                     return true;
                 }
             }
         }
 
         // Влево
-        while (!isPieceMoveOutBoard(toLine, toColumn - 1)) {
-            ++counter;
-            --toColumn;
+        while (!isPieceMoveOutBoard(checkedLine, checkedColumn - 1)) {
+            --checkedColumn;
 
-            if (board.board[toLine][toColumn] != null) {
-                if (!board.board[toLine][toColumn].getSymbol().equals("Q")
-                        && !board.board[toLine][toColumn].getSymbol().equals("R")
-                        && (!board.board[toLine][toColumn].getSymbol().equals("K") && !board.board[toLine][toColumn].getColor().equals(board.nowPlayerColor()))
+            if (board.board[checkedLine][checkedColumn] != null) {
+                if (!board.board[checkedLine][checkedColumn].getSymbol().equals("Q")
+                        && !board.board[checkedLine][checkedColumn].getSymbol().equals("R")
+                        && (!board.board[checkedLine][checkedColumn].getSymbol().equals("K") && !board.board[checkedLine][checkedColumn].getColor().equals(board.nowPlayerColor()))
                 ) {
                     break;
                 }
 
-                if (board.board[toLine][toColumn].getColor().equals(getAttackPieceColor(board))) {
+                if (board.board[checkedLine][checkedColumn].getColor().equals(getAttackPieceColor(board))
+                        && checkedColumn != toColumn  // Король должен иметь возможность съесть угрожающую фигуру
+                ) {
                     return true;
                 }
             }
